@@ -8,15 +8,35 @@ body{
 }
 
 .header{
-    background-color: blue;
+    background-color: #1b1e57;
     color: white;
     display: grid;
     justify-content: center;
     font-size: 1.2em;   
     height: 20%;
+    position: relative;
+    overflow: hidden;
 }
 
 .header > h1{
     padding-top: 10%;
     padding-bottom: 10%;
+}
+
+.image-container{
+    width: 15%;
+    height: 30%;
+    border-radius: 100% 100%;
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    transform: translate(-25%, -25%);
+    z-index: 1;
+    overflow: hidden;    
+}
+
+.avatar{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
 }
