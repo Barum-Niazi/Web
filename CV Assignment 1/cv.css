@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: Garamond, serif;
     background-color: #fcfcfc;
     height: 100vh;
     width: 100vw;
@@ -18,6 +18,8 @@ body{
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px #000000;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%
 }
 
 .header > h1{
@@ -87,4 +89,36 @@ body{
     border-bottom: 0px;
     border-left: 0px;
     border-right: 0px;;
+}
+
+.columns{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: 1px solid black;
+
+}
+
+.column-1{
+    flex-grow: 1;
+    margin-right: 2%;
+    position: relative;
+    border-right: 1px solid black;
+
+}
+
+
+
+.column-2{
+    flex-grow: 1.5;
+}
+
+.column-1 > h2{
+    font-size: 1.6em;
+    font-weight: 700;
+    color: rgb(18, 18, 121);
+    padding-bottom: 0.5%;
+    margin-bottom: 0.5%;
 }
