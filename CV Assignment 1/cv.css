@@ -85,8 +85,8 @@ body{
 #objective-separator{
     width: 100%;
     padding-top: 1%;
-    border-top: 1px solid black;
-    border-bottom: 0px;
+    border-top: 0px solid black;
+    border-bottom: 1px solid black;
     border-left: 0px;
     border-right: 0px;;
 }
