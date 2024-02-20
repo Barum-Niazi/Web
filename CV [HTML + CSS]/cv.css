@@ -95,30 +95,24 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin-left: 5%;
-    margin-right: 5%;
     padding-top: 2%;
     padding-bottom: 2%;
+    border-top: 1px solid black;
+
 }
 
 .column-1{
     flex-grow: 1;
     margin-right: 2%;
     position: relative;
+    border-right: 1px solid black;
+
 }
 
-.column-1::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 10%;
-    width: 0.5px;
-    background-color: black; 
-}
+
 
 .column-2{
-    flex-grow: 1
+    flex-grow: 1.5;
 }
 
 .column-1 > h2{
