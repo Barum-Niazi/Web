@@ -179,7 +179,14 @@ h2{
     font-size: 1.6em;
     font-weight: 700;
     color:#202021;
-    padding-top: 5%;
+    padding-top: 12%;
     margin-bottom: 0.5%;
     text-shadow: #000000 1px 1px 1px;
+}
+
+.date{
+    font-size: 0.8em;
+    position: absolute;
+    top: 16.5vh;
+    left: 20vw;
 }

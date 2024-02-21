@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: Helvetica, sans-serif;
+    background-color: #fcfcfc;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;}
+
+#main{
+    width: 60vw;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+#sidebar{
+    background-color: #4d635d;
+    width: 18vw;
+    height: 100vh;
+}
+
+.avatar{
+    width: 13.3vw;
+    height: 22vh;
+    padding-left: 16%;
+    margin-top: 10%;
+    margin-bottom: 10%
+}
+
+#contact{
+    padding-top: 0;
+    margin-left: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top: 1.5px solid white;
+    margin-right: 10%;
+    margin-bottom: 10%
+}
+
+#contact>h2{
+    font-size: 0.8em;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    padding-bottom: 5%;
+}
+
+#contact>p{
+    font-size: 0.7em;
+    margin-top: 0;
+}
+
+
+.contact-text{
+    padding-left: 10%
+}
