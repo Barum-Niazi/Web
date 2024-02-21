@@ -8,6 +8,8 @@ body{
     justify-content: center;}
 
 #main{
+    display: flex;
+    flex-direction: row;
     width: 60vw;
     height: 120vh;
     color: white;
@@ -160,7 +162,44 @@ body{
     text-shadow: #fcfcfc 0 0 2px;
 }
 
-#title{
-    top: 0vh
+#rest-of-the-page{
+    flex-grow:2;
 }
 
+#title{
+    color : #223d39;
+    margin-top: 0%;
+    padding-left: 8.5vw;    
+}
+
+#title>h1{
+    margin-bottom: 0;
+}
+#title>p{
+    margin-top: 0;
+}
+
+#separator {
+    margin-top: 1%;
+    border-top: 3.5px solid black;
+    border-bottom: 3.5px solid black;
+    width: 25vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#professional-summary{
+    color: black;
+    padding-top: 5%
+}
+
+#professional-summary>h2{
+    margin-left: 2.5vw;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#professional-summary>p{
+    margin-left: 2.0vw;
+    font-size: 0.9em;
+    }
