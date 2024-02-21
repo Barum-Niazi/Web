@@ -4,22 +4,23 @@ body{
     padding-bottom: 0;
     font-family: Helvetica, sans-serif;
     background-color: #fcfcfc;
-    height: 100vh;
-    width: 100vw;
     display: flex;
     justify-content: center;}
 
 #main{
     width: 60vw;
+    height: 120vh;
     color: white;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 #sidebar{
-    background-color: #4d635d;
+    background-color: #223d39;
     width: 18vw;
-    height: 100vh;
+    height: 100%;
+    border-right: 1px solid black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .avatar{
@@ -38,11 +39,11 @@ body{
     justify-content: space-evenly;
     border-top: 1.5px solid white;
     margin-right: 10%;
-    margin-bottom: 10%
+    margin-bottom: 6%;
 }
 
 #contact>h2{
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-weight: 800;
     margin-top: 0;
     margin-bottom: 0;
@@ -57,7 +58,109 @@ body{
     margin-top: 0;
 }
 
-
 .contact-text{
     padding-left: 10%
 }
+
+#skills{
+    padding-top: 0;
+    margin-left: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top: 1.5px solid white;
+    margin-right: 10%;
+    margin-bottom: 6%;
+}
+
+#skills>h2{
+    font-size: 0.9em;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    padding-bottom: 5%;
+}
+
+#skills>ul{
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#skills>ul>li{
+    font-size: 0.7em;
+    padding-top: 1.5%;
+    margin-left: -16%
+}
+
+#languages{
+    padding-top: 0;
+    margin-left: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top: 1.5px solid white;
+    margin-right: 10%;
+    margin-bottom: 10%
+}
+
+#languages>h2{
+    font-size: 0.9em;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    padding-bottom: 5%;
+}
+
+#languages>p{
+    font-size: 0.7em;
+    margin-top: 0;
+    text-shadow: #fcfcfc 0 0 2px;
+    margin-bottom: 2%;
+}
+
+#personal{
+    padding-top: 0;
+    margin-left: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top: 1.5px solid white;
+    margin-right: 10%;
+    margin-bottom: 10%
+}
+
+#personal>h2{
+    font-size: 0.9em;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    padding-bottom: 5%;
+}
+
+#personal>p{
+    font-size: 0.7em;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+.personal-text{
+    margin-top: 0;
+    margin-bottom: 2%;
+    text-shadow: #fcfcfc 0 0 2px;
+}
+
+#title{
+    top: 0vh
+}
+
