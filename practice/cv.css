@@ -21,7 +21,7 @@ body{
 #sidebar{
     background-color: #223d39;
     width: 16vw;
-    height: 100%;
+    height: 120%;
     border-right: 1px solid black;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     margin-right: 0;
@@ -29,9 +29,9 @@ body{
 }
 
 .avatar{
-    width: 10vw;
-    height: 15vh;
-    padding-left: 16%;
+    width: 11.75vw;
+    height: 23vh;
+    padding-left: 17%;
     margin-top: 10%;
     margin-bottom: 10%
 }
@@ -196,32 +196,34 @@ body{
     margin-right: 5%;
 }
 
-#work-history{
+#work-history, #education{
     border-top: 1px solid black;
     margin-top: 5%;
     color: black;
     margin-left: 10%;
 }
 
-#professional-summary>h2, #work-history>h2{
+#professional-summary>h2, #work-history>h2, #education>h2{
     font-size: 1.2em;
     font-weight: bold;
 }
 
-#professional-summary>p{
+#professional-summary>p, #work-history>p, #education>p{
     font-size: 0.8em;
     margin-right: 2%;
     margin-top: -1%
 }
-#work-history>h2{
+#work-history>h2, #education>h2{
     margin-top: 0;
 }
 
-.work-title{
+
+.work-title, .education-title{
     font-size: 0.95em;
     font-weight: bold;
     margin-bottom: 5%;
 }
+
 
 .work-date{
     font-size: 0.6em;
@@ -237,3 +239,23 @@ body{
     color: rgb(67, 62, 62);
 }
 
+#work-history>ul{
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#work-history>ul>li{
+    color: rgb(67, 62, 62);
+    font-size: 0.8em;
+    padding-top: 1.5%;
+    margin-left: -3.5%
+}
+
+.education-institute{
+    font-size: 0.95em;
+    font-weight: bold;
+    padding-top: 10%
+}
