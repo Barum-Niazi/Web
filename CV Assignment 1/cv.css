@@ -19,7 +19,7 @@ body{
 }
 
 #sidebar{
-    background-color: #223d39;
+    background-color: #364f4d;
     width: 16vw;
     height: 120%;
     border-right: 1px solid black;
@@ -170,7 +170,7 @@ body{
 }
 
 #title{
-    color : #223d39;
+    color : #364f4d;
     margin-top: 0%;
     padding-left: 13.5vw;    
 
