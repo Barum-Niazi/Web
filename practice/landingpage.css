@@ -1,0 +1,32 @@
+/* Custom styles */
+.hero {
+    background: url('hero-image.jpg') center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .featured-games {
+    padding: 50px 0;
+  }
+  
+  .about {
+    background: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .testimonials {
+    padding: 50px 0;
+  }
+  
+  .subscribe {
+    background: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .footer {
+    background: #343a40;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
