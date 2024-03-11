@@ -1,14 +1,41 @@
+body{
+    font-family: Helvetica, sans-serif;
+}
+
 .navbar{
     border-top: 5px solid;
     border-image: linear-gradient(to right, purple, #a87e93, purple) 1;
     border-image-slice: 1;
     background-color: #1a1a1a;
+    height: 70px !important;
 }
 
 .navbar-header{
     padding-left: 10%;
+    position: absolute !important;
+    left: 30px !important;
+
+
 }
 
 .navbar-nav>li.space-between{
     margin-right: 15px
+}
+
+.container-fluid{
+    display:flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.navbar-brand{
+    justify-self: flex-start !important;
+}
+
+@media screen and (max-width: 768px){
+    .navbar-header{
+        top: -3px !important; 
+    }
+    
 }
