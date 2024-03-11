@@ -1,0 +1,14 @@
+.navbar{
+    border-top: 5px solid;
+    border-image: linear-gradient(to right, purple, #a87e93, purple) 1;
+    border-image-slice: 1;
+    background-color: #1a1a1a;
+}
+
+.navbar-header{
+    padding-left: 10%;
+}
+
+.navbar-nav>li.space-between{
+    margin-right: 15px
+}
