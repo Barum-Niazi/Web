@@ -15,7 +15,6 @@ body{
     position: absolute !important;
     left: 30px !important;
 
-
 }
 
 .container-fluid{
@@ -25,7 +24,9 @@ body{
     width: 100% !important;
 }
 
-
+#navbar-collapse{
+    left: 50% !important;
+}
 
 @media screen and (max-width: 768px){
     .navbar-header{
