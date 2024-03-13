@@ -1,0 +1,8 @@
+
+.navbar-brand{
+    color: white;
+}
+
+.nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus{
+    color: white !important;
+}
