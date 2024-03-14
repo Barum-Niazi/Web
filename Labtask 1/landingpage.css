@@ -1,3 +1,7 @@
+body{
+    background-color: #212330;
+}
+
 .navbar{
     color:white !important;
 }
@@ -7,4 +11,36 @@
 
 .nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus{
     color: white !important;
+}
+
+.carousel{
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+}
+
+.carousel-inner img {
+    max-height: 600px;
+    object-fit: fill;
+    box-shadow: transparent 0px 0px 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon {
+    border-radius: 45%;
+}
+
+.carousel-control-next-icon {
+    border-radius: 45%;
 }
