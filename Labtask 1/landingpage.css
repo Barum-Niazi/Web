@@ -1,19 +1,24 @@
-body{
+body {
     background-color: #212330;
 }
 
-.navbar{
-    color:white !important;
-}
-.navbar-brand{
-    color: white;
-}
-
-.nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus{
+.navbar {
     color: white !important;
 }
 
-.carousel{
+.navbar-brand {
+    color: white;
+}
+
+.nav-link,
+.nav-link:hover,
+.nav-link:active,
+.nav-link:visited,
+.nav-link:focus {
+    color: white !important;
+}
+
+.carousel {
     width: 100%;
     margin-top: 0;
     display: flex;
@@ -22,7 +27,7 @@ body{
 }
 
 .carousel-inner img {
-    max-height: 600px;
+    max-height: 450px;
     object-fit: fill;
     box-shadow: transparent 0px 0px 10px;
 }
@@ -44,3 +49,43 @@ body{
 .carousel-control-next-icon {
     border-radius: 45%;
 }
+
+.new-arrivals {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 1%;
+}
+
+.cards-div{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.card-img-top {
+    background-color: #212330;
+    width: 100%;
+    height: 60%; /* Adjusted height */
+    object-fit: cover; /* Changed to cover */
+}
+.card{
+    width: 18rem;
+    margin: 10px;
+    background-color: #2f3243;
+    color: white;
+    border: none;
+}
+
+.card-body {
+    padding: 0.5rem; /* Added padding */
+}
+
+/* Smaller font size for card text */
+.card-text {
+    font-size: 0.9rem;
+}
+
+
