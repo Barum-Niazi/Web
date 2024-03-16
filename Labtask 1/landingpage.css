@@ -105,6 +105,29 @@ body {
     font-size: 0.9rem;
 }
 
+.discoverGames{
+    width: 40% !important;
+    margin-left: 2%;
+    border-bottom: 1px solid white;
+}
+
+.discoverGames>h2{
+    font-size: 1.3rem;
+    margin-bottom: 3%;
+    margin-left: 0;
+    color: white !important;
+    
+}
+
+.row{
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+
+}
+
+.container{
+    align-items: flex-start !important;
+}
 
 @media only screen and (max-width: 768px){
     .new-arrivals{
@@ -113,6 +136,19 @@ body {
     .card{
         width: 100%;
         margin-top: 2px;
+    }
+    .card-body{
+        height: 10% !important;
+    }
+    .card-img-top{
+        height: 50%;
+    }
+    .discoverGames{
+        width: 100% !important;
+        margin-left: 0;
+    }
+    .discoverGames>h2{
+        font-size: 1rem;
     }
 }
     
