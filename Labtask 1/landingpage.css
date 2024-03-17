@@ -29,7 +29,7 @@ body {
     background-color: white !important;
 }
 
-.form-control {
+#searchBar {
     width: 150px; 
     padding: 0.25rem 0.5rem; 
     background-image: url('https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/search.svg');

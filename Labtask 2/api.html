@@ -11,19 +11,15 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
         />
-        <link rel="stylesheet" href="contact-us.css" />
+        <link rel="stylesheet" type="text/css" href="api.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/926ae15403.js"></script>
-        <script
-            src="https://code.jquery.com/jquery-3.7.1.js"
-            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-            crossorigin="anonymous"
-        ></script>
-        <script src="contact-us.js"></script>
-        <title>Contact Us</title>
+        <script src="api.js"></script>
+        <title>Restful API</title>
     </head>
     <body>
+        <a id="top"></a>
         <nav class="navbar navbar-expand-lg bg-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">GameStore</a>
@@ -84,19 +80,21 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Contact Us</a>
+                            <a
+                                class="nav-link"
+                                href="../Assignment 2/contact-us.html"
+                                >Contact Us</a
+                            >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Labtask 2/api.html"
-                                >Restful API</a
-                            >
+                            <a class="nav-link" href="#">Restful API</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
                         <input
                             class="form-control me-2"
-                            type="search"
                             id="searchBar"
+                            type="search"
                             placeholder="Search"
                             aria-label="Search"
                         />
@@ -107,51 +105,52 @@
                 </div>
             </div>
         </nav>
+        <div class="wrapper">
+            <div class="container mt-5">
+                <h2 class="mb-4">Story CRUD Operations</h2>
 
-        <div class="container mt-5">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Contact Us</h5>
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="name"
-                                placeholder="Enter your name"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label"
-                                >Email address</label
-                            >
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="name@example.com"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label"
-                                >Message</label
-                            >
-                            <textarea
-                                class="form-control"
-                                id="message"
-                                rows="3"
-                            ></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            class="btn btn-secondary"
-                            id="submitBtn"
+                <!-- Create Form -->
+                <form id="createForm">
+                    <div class="form-group">
+                        <label for="createTitle">Title:</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="createTitle"
+                            required
+                            value="new story"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="createContent">Content:</label>
+                        <textarea
+                            class="form-control"
+                            id="createContent"
+                            rows="3"
+                            required
                         >
-                            Submit
-                        </button>
-                    </form>
-                </div>
+New Story Content</textarea
+                        >
+                    </div>
+                    <button
+                        id="createBtn"
+                        type="submit"
+                        class="btn btn-secondary"
+                    >
+                        Create
+                    </button>
+                    <button
+                        id="clearBtn"
+                        type="submit"
+                        class="btn btn-secondary"
+                        style="display: none"
+                    >
+                        Clear
+                    </button>
+                </form>
+
+                <!-- Display Stories -->
+                <div id="storiesList"></div>
             </div>
         </div>
     </body>

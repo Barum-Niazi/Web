@@ -10,7 +10,10 @@ function handleFormSubmission(event) {
         $("#email").val() === "" ||
         $("#message").val() === ""
     ) {
-        alert("Please fill out all fields");
+        $("#name").addClass("error");
+        $("#email").addClass("error");
+        $("#message").addClass("error");
+        alert("Please fill in all fields before submitting the form.");
         event.preventDefault();
     }
 }
