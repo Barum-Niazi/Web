@@ -46,11 +46,12 @@ body {
     display: flex;
     justify-content: center;
     padding-left: 0;
+    height: 35% !important;
 }
 
 .carousel-inner img {
     max-height: 450px;
-    object-fit: fill;
+    object-fit: cover;
     box-shadow: transparent 0px 0px 10px;
 }
 
@@ -99,7 +100,7 @@ body {
     width: 100%;
     height: 60%; 
     object-fit: cover; 
-    border-radius: 0% !important;
+    border-radius: 5px !important;
 }
 .card{
     width: 16.5rem;
@@ -108,16 +109,18 @@ body {
     color: white;
     border: none;
     transition: transform 0.3s ease;
-    border-radius: 0% !important;
+    border-radius: 5px !important;
 }
 
 .card:hover{
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
 .card-body {
     padding: 0.5rem;
     height: 5% !important;
+    border-radius: 5px !important;
 }
 
 .card-body>h5{
@@ -141,8 +144,48 @@ body {
 .btn:hover{
     background-color: #445c66 !important;
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
+.customers-choose
+{
+    width: 100%;
+    color:white;
+    padding: 2%;
+}
+
+.customers-choose h1{
+    font-size: 1.6rem;
+}
+
+.container{
+    background-color: #132020;
+}
+
+.text-center{
+    background-color: #132020 !important;
+}
+
+.customers-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: -1%;
+}
+
+.customer-img{
+    margin: 1%;
+    width: 15%;
+    height: 55vh;
+    object-fit: fill;
+    transition:transform 0.3s ease ;
+}
+
+.customer-img:hover{
+    transform: translateY(-5px);
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 768px){
     .new-arrivals{
@@ -158,6 +201,15 @@ body {
     }
     .card-img-top{
         height: 60%;
+    }
+
+    .customers-div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .customer-img{
+        width: 100%;
+        height: 100%;
     }
 }
     
