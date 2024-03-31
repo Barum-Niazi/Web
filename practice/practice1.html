@@ -18,27 +18,80 @@
         <title>Document</title>
     </head>
     <body>
-        <nav id="top" class="navbar bg-black">
-            <div class="anchors">
-                <a class="text-gray uppercase">EPAPER</a>
-                <a class="text-gray uppercase"></a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
-                <a class="text-gray uppercase">Test</a>
+        <!-- Top Navbar -->
+        <nav id="top" class="navbar lg bg-black">
+            <div class="container">
+                <div class="anchors">
+                    <a class="text-gray uppercase">EPAPER</a>
+                    <a class="text-gray uppercase">Test 1</a>
+                    <a class="text-gray uppercase">Test 2</a>
+                    <a class="text-gray uppercase">Test 3</a>
+                    <a class="text-gray uppercase">Test 4</a>
+                    <a class="text-gray uppercase">Test 5</a>
+                    <a class="text-gray uppercase">Test 6</a>
+                    <a class="text-gray uppercase">Test 7</a>
+                    <a class="text-gray uppercase">Test 8</a>
+                    <a class="text-gray uppercase">Test 9</a>
+                </div>
             </div>
         </nav>
-        <div class="flex flex-col items-center mt-4 mb-3">
-            <a class="dawn" href="https://dawn.com"
-                ><img class="logo" src="logo.png"
-            /></a>
+
+        <!-- Logo -->
+        <div class="flex flex-col items-center mt-4 mb-3 title">
+            <a class="dawn" href="https://dawn.com">
+                <img class="logo" src="logo.png" alt="Logo" />
+            </a>
         </div>
-        <div class="container">
-            <nav id="second" class="navbar bg-light"></nav>
-        </div>
+
+        <!-- Second Navbar -->
+        <nav id="second" class="navbar navbar-expand-lg bg-light">
+            <div class="container">
+                <a class="navbar-brand">EPAPER</a>
+                <!-- Toggle button for mobile -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">Test 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 4</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 5</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 6</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 7</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 8</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Test 9</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </body>
 </html>

@@ -1,8 +1,9 @@
-.top{
-    height: 28px
+.top {
+    height: 50px !important;
+    position: absolute;
 }
 
-.anchors{
+.anchors {
     margin-top: 0%;
     padding-top: 0%;
     width: 100%;
@@ -11,31 +12,30 @@
     align-items: center;
 }
 
-.text-gray{
+.text-gray {
     padding-top: 0%;
     margin-top: 0%;
     font-size: 0.8rem;
-    padding-left: 2%;
+    padding-left: 0.3%;
     text-decoration: none;
     color: #919fab;
     text-transform: uppercase;
     margin-bottom: 2%;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-
-.logo{
-    height: 16%;
-    width: 15%;
+.logo {
+    height: 30px; /* Set an absolute height in pixels */
+    width: auto; /* Let the width adjust proportionally */
 }
 
-.dawn{
+.dawn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,13 +43,18 @@
     padding-top: 0%;
 }
 
-#second{
-    border-top: 3px solid black;
+.container {
+    padding-top: 2%;
 }
 
-@media screen and (max-width: 768px){
-    .navbar{
+#second {
+    border-top: 3px solid black;
+    border-bottom: 1px solid gray;
+    height: 2em;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
         display: none;
     }
-    
 }
