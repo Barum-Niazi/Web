@@ -1,0 +1,96 @@
+.body {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.header {
+  background-color: white;
+}
+
+.icons {
+  margin-left: 10%;
+}
+
+.bi {
+  padding-left: 1%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side {
+  float: right;
+  margin-right: 30%;
+}
+
+.jpost {
+  background-color: red;
+  font-size: 13px;
+  text-decoration: none;
+  color: white;
+}
+
+#top {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#bottom {
+  height: 35px;
+  width: auto;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+#first {
+  margin-left: 18%;
+  font-weight: bold;
+}
+
+.nav-item {
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+#second {
+  margin-left: 18%;
+}
+
+.advert {
+  border-top: 3px solid #fff9f9;
+  border-bottom: 3px solid #e7e7e7;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.advert > p {
+  margin-bottom: 0;
+  font-weight: lighter;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%;
+  padding-left: 10%;
+}
+
+.img-fluid {
+  height: 300px;
+}
+
+.card-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.card-text {
+  padding-top: 20%;
+}
+
+.card {
+}
