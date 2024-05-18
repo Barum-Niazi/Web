@@ -81,6 +81,11 @@
                             <button type="submit" class="btn btn-primary w-100">
                                 Register
                             </button>
+                            <% if (flash) { %>
+                            <div class="alert alert-danger mt-3" role="alert">
+                                <%= flash.message %>
+                            </div>
+                            <% } %>
                             <div class="extra">
                                 <a href="/login"
                                     >Already have an account? Login</a

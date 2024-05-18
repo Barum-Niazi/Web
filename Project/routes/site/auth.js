@@ -11,10 +11,8 @@ router.post("/register", async (req, res) => {
     try {
         let user = await User.findOne({ username: req.body.username });
         if (user) {
-            console.log("User already exists");
             return res.redirect("/login");
         }
-
         const salt = await bcrypt.genSalt(10);
         req.body.password = await bcrypt.hash(req.body.password, salt);
         user = new User(req.body);
@@ -43,13 +41,14 @@ router.post("/login", async (req, res) => {
         const result = await bcrypt.compare(req.body.password, user.password);
         if (result) {
             console.log("Login successful");
+            req.session.user = user;
             res.redirect("/");
         } else {
-            console.log("Incorrect password");
+            res.flash("danger", "Invalid credentials");
             res.redirect("/register");
         }
     } catch (err) {
-        console.error("Error during login:", err);
+        res.flash("danger", "Error during login");
         res.redirect("/login");
     }
 });
