@@ -11,12 +11,61 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
         />
+        <link rel="stylesheet" href="login.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/926ae15403.js"></script>
         <title>Login Page</title>
     </head>
     <body>
-        <img class="bg-image" src="2306.w063.n005.148B.p1.148.jpg" />
+        <img
+            class="bg-image"
+            src="dark-gaming-4096-x-2160-wallpaper-4bypa92agg25l9bd.jpg"
+        />
+        <div
+            class="container d-flex justify-content-center align-items-center vh-100"
+        >
+            <div class="row w-100">
+                <div class="col-md-6 mx-auto">
+                    <div class="card p-4">
+                        <h3 class="card-title text-center">Login</h3>
+                        <form action="/login" method="POST">
+                            <div class="mb-3">
+                                <label for="email" class="form-label"
+                                    >Email address</label
+                                >
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    required
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label"
+                                    >Password</label
+                                >
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="password"
+                                    name="password"
+                                    required
+                                />
+                                <div class="extra">
+                                    <a href="register.html">Register</a>
+                                    <a href="register.html">Skip to homepage</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                Login
+                            </button>
+                            <a href="register.html">Forgot password?</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
