@@ -1,8 +1,11 @@
 const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+let expressLayouts = require("express-ejs-layouts");
 
-const router = require("./routes/index.js");
+server.use(expressLayouts);
+server.set("layout", "layout");
 mongoose
     .connect("mongodb://localhost:27017/gamestore")
     .then(() => {
@@ -16,4 +19,5 @@ server.listen(3000);
 
 server.use(express.static("public"));
 server.set("view engine", "ejs");
-server.use("/", router);
+server.use("/", require("./routes/site/landingpage"));
+server.use("/contact-us", require("./routes/site/contact-us"));
