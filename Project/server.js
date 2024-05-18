@@ -6,6 +6,10 @@ let expressLayouts = require("express-ejs-layouts");
 
 server.use(expressLayouts);
 server.set("layout", "layout");
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
 mongoose
     .connect("mongodb://localhost:27017/gamestore")
     .then(() => {
