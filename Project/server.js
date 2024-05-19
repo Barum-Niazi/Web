@@ -7,14 +7,14 @@ let expressLayouts = require("express-ejs-layouts");
 const PORT = config.get("port");
 const MONGO = config.get("mongoURI");
 const SESSIONSECRET = config.get("sessionSecret");
+const sessionAuth = require("./middlewares/sessionAuth");
 
 server.use(expressLayouts);
 server.set("layout", "layout");
-
 server.use(
     session({ secret: SESSIONSECRET, resave: false, saveUninitialized: true })
 );
-
+server.use(require("./middlewares/siteMiddleware"));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
@@ -32,5 +32,5 @@ server.listen(PORT);
 server.use(express.static("public"));
 server.set("view engine", "ejs");
 server.use("/", require("./routes/site/landingpage"));
-server.use("/", require("./routes/site/contact-us"));
 server.use("/", require("./routes/site/auth"));
+server.use("/", require("./routes/site/contact-us"));

@@ -11,7 +11,8 @@ router.post("/register", async (req, res) => {
     try {
         let user = await User.findOne({ username: req.body.username });
         if (user) {
-            return res.redirect("/login");
+            res.flash("danger", "Username already exists");
+            return res.redirect("/register");
         }
         const salt = await bcrypt.genSalt(10);
         req.body.password = await bcrypt.hash(req.body.password, salt);
@@ -19,9 +20,11 @@ router.post("/register", async (req, res) => {
 
         await user.save();
         console.log("User registered successfully");
+        res.flash("success", "Registration successful. Please log in.");
         res.redirect("/login");
     } catch (err) {
         console.error("Error during registration:", err);
+        res.flash("danger", "Registration failed. Please try again.");
         res.redirect("/register");
     }
 });
@@ -34,18 +37,19 @@ router.post("/login", async (req, res) => {
     try {
         let user = await User.findOne({ email: req.body.email });
         if (!user) {
-            console.log("User not found");
-            return res.redirect("/register");
+            res.flash("danger", "Invalid credentials");
+            return res.redirect("/login");
         }
 
         const result = await bcrypt.compare(req.body.password, user.password);
         if (result) {
             console.log("Login successful");
             req.session.user = user;
+            res.flash("success", "Login successful");
             res.redirect("/");
         } else {
             res.flash("danger", "Invalid credentials");
-            res.redirect("/register");
+            res.redirect("/login");
         }
     } catch (err) {
         res.flash("danger", "Error during login");
