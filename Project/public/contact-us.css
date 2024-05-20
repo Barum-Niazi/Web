@@ -1,5 +1,5 @@
 body {
-    background-color: #132020;
+    background-color: #132020 ;
 }
 
 .navbar {
@@ -41,6 +41,7 @@ body {
 .container{
     margin: 5%;
     padding-top: 5%;
+    background-color: #132020;
 }
 
 .card{
@@ -75,6 +76,13 @@ body {
     background-color: #445c66 !important;
     transform: translateY(-5px);
     cursor: pointer;
+}
+
+.footer{
+    background-color: #132020;
+    color: white;
+    padding: 2%;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {

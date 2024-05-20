@@ -14,7 +14,8 @@ server.set("layout", "layout");
 server.use(
     session({ secret: SESSIONSECRET, resave: false, saveUninitialized: true })
 );
-server.use(require("./middlewares/siteMiddleware"));
+server.use(require("./middlewares/pageMiddleware"));
+server.use(require("./middlewares/flashMiddleware"));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
@@ -33,4 +34,6 @@ server.use(express.static("public"));
 server.set("view engine", "ejs");
 server.use("/", require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
-server.use("/", require("./routes/site/contact-us"));
+server.get("/contact-us", sessionAuth, (req, res) => {
+    res.render("contact-us");
+});
