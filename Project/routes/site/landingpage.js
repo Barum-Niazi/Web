@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const fetchGames = require("../../middlewares/gameMiddleware");
 
-router.get("/", (req, res) => {
+router.get("/", fetchGames, (req, res) => {
     res.render("landingpage");
 });
 

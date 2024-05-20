@@ -74,10 +74,31 @@
     <%= flash.message %>
 </div>
 <% } %>
-<div class="new-arrivals">
-    <h1>NEW ARRIVALS</h1>
+<div class="featured-games">
+    <h1>FEATURED GAMES</h1>
     <div class="cards-div">
+        <% games.forEach(game => { %>
         <div class="card">
+            <img src="<%= game.coverImage %>" class="card-img" />
+            <div class="card-body">
+                <h5 class="card-title"><%= game.name %></h5>
+                <p class="card-text">$<%= game.price %></p>
+                <p class="card-rating">
+                    <% for (let i = 0; i < Math.floor(game.rating); i++) { %>
+                    <i class="fas fa-star"></i>
+                    <% } %> <% if (game.rating % 1 !== 0) { %>
+                    <i class="fas fa-star-half-alt"></i>
+                    <% } %>
+                </p>
+                <a href="#" class="btn btn-secondary cart-button">
+                    <i class="bi bi-cart"></i>
+                    <span class="d-none d-md-inline">Add to Cart</span>
+                </a>
+            </div>
+        </div>
+        <% }) %>
+
+        <!-- <div class="card">
             <img src="/images/rdr2.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 class="card-title">Red Dead Redemption 2</h5>
@@ -87,8 +108,8 @@
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>
             </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
             <img src="/images/gow.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 class="card-title">God of War</h5>
@@ -98,8 +119,8 @@
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>
             </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
             <img src="/images/cyberpunk.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 class="card-title">Cyberpunk 2077</h5>
@@ -109,8 +130,8 @@
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>
             </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
             <img src="/images/cod-mw.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 class="card-title">Call of Duty: Modern Warfare</h5>
@@ -120,8 +141,8 @@
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>
             </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
             <img src="/images/uncharted.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 class="card-title">Uncharted: Legacy of Thieves</h5>
@@ -131,17 +152,18 @@
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>
             </div>
-        </div>
+        </div> -->
+        <!-- </div> -->
     </div>
-</div>
-<div class="customers-choose">
-    <h1>CUSTOMERS CHOICE</h1>
-    <div class="customers-div">
-        <img class="customer-img" src="/images/ac-mirage.jpg" />
-        <img class="customer-img" src="/images/starfield.jpg" />
-        <img class="customer-img" src="/images/horizon.jpg" />
-        <img class="customer-img" src="/images/metro.jpg" />
-        <img class="customer-img" src="/images/sekiro.jpg" />
-        <img class="customer-img" src="/images/stardew.jpg" />
+    <div class="customers-choose">
+        <h1>CUSTOMERS CHOICE</h1>
+        <div class="customers-div">
+            <img class="customer-img" src="/images/ac-mirage.jpg" />
+            <img class="customer-img" src="/images/starfield.jpg" />
+            <img class="customer-img" src="/images/horizon.jpg" />
+            <img class="customer-img" src="/images/metro.jpg" />
+            <img class="customer-img" src="/images/sekiro.jpg" />
+            <img class="customer-img" src="/images/stardew.jpg" />
+        </div>
     </div>
 </div>
