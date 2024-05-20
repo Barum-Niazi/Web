@@ -1,5 +1,7 @@
 {
     "port": 3000,
     "mongoURI": "mongodb://localhost:27017/gamestore",
-    "sessionSecret": "secret"
+    "sessionSecret": "secret",
+    "apiURL": "https://api.rawg.io/api/games",
+    "apiKey": "2ad450a500564b8d951b46b0de6054b7"
 }

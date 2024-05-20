@@ -7,7 +7,7 @@ let expressLayouts = require("express-ejs-layouts");
 const PORT = config.get("port");
 const MONGO = config.get("mongoURI");
 const SESSIONSECRET = config.get("sessionSecret");
-const sessionAuth = require("./middlewares/sessionAuth");
+const fetchAndStoreGames = require("./utils/fetchData");
 
 server.use(expressLayouts);
 server.set("layout", "layout");
@@ -28,12 +28,11 @@ mongoose
         console.log("Error connecting to MongoDB", err);
     });
 
+// fetchAndStoreGames(); data already stored no need for this
 server.listen(PORT);
 
 server.use(express.static("public"));
 server.set("view engine", "ejs");
 server.use("/", require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
-server.get("/contact-us", sessionAuth, (req, res) => {
-    res.render("contact-us");
-});
+server.use("/", require("./routes/site/contact-us"));

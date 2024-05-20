@@ -1,0 +1,49 @@
+body {
+    background-color: #132020 ;
+    margin: 0;
+    color: white;
+}
+
+.card {
+    background-color: #1c2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;    
+    border: none;
+    border-radius: 1rem;
+}
+
+.btn{
+    background-color: #132020 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+    transition: transform 0.3s ease !important;
+    margin-bottom: 0.9rem !important;}
+
+.btn:hover{
+    background-color: #445c66 !important;
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+h3.card-title {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.extra{
+    margin-top: 1rem;
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: flex-start !important;
+
+}
+
+.form-control{
+    background-color: rgba(34, 40, 43, 0.91) !important;
+    color:white !important;
+}
+
+.form-label{
+    color: white !important;
+}
