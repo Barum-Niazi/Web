@@ -10,7 +10,6 @@ router.get("/store", async (req, res) => {
     const games = await Game.find()
         .skip((page - 1) * limit)
         .limit(limit);
-
     res.render("store", {
         games,
         currentPage: page,
@@ -39,8 +38,10 @@ router.get("/store/genre/:genre", async (req, res) => {
 
 router.get("/store/description/:name", async (req, res) => {
     const { name } = req.params;
-    const game = await Game.findOne({ name });
-    res.render("description");
+    const game = await Game.findOne({
+        name: new RegExp("^" + name + "$", "i"),
+    }); // case-insensitive
+    res.render("description", { game });
 });
 
 module.exports = router;

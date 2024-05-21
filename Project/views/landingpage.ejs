@@ -78,7 +78,7 @@
     <h1>FEATURED GAMES</h1>
     <div class="cards-div">
         <% games.forEach(game => { %>
-        <div class="card">
+        <div class="card" data-name="<%= game.name %>">
             <img src="<%= game.coverImage %>" class="card-img" />
             <div class="card-body">
                 <h5 class="card-title"><%= game.name %></h5>
@@ -110,3 +110,4 @@
         </div>
     </div>
 </div>
+<script src="/js/descriptionScript.js"></script>

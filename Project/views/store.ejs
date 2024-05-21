@@ -37,7 +37,11 @@
 
     <div class="cards-div">
         <% if (games.length > 0) { %> <% games.forEach(game => { %>
-        <div class="card" data-genre="<%= game.genre %>">
+        <div
+            class="card"
+            data-genre="<%= game.genre %>"
+            data-name="<%= game.name %>"
+        >
             <img
                 src="<%= game.coverImage %>"
                 class="card-img-top"
@@ -88,3 +92,4 @@
     </nav>
 </div>
 <script src="/js/storeScript.js"></script>
+<script src="/js/descriptionScript.js"></script>

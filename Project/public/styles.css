@@ -300,68 +300,83 @@ body {
     vertical-align: -.125em; /* Align icon with text */
 }
 
-/* description page styles */
 .game-description-container {
-    color: white;
-    padding: 2rem;
-    background-color: #1c2d2d;  /* Consistent with other pages */
+    position: relative;
+    width: 100%;
+    padding-top: 60px;
+    margin-bottom: 0px;
 }
 
-.game-header {
+.game-background {
     position: relative;
-    height: 300px;
+    width: 100%;
+    min-height: 800px; 
+    height: calc(100vh - 60px); 
+}
+
+.game-header, .game-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; 
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.game-cover-image {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+.game-cover {
+    top: 50%; 
 }
 
 .game-details {
-    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 960px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     padding: 20px;
-    background: rgba(34, 40, 43, 0.9); /* Semi-transparent dark background for contrast */
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .game-title {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    color: #FFD700; /* Golden color for better visibility */
+    font-size: 2.5rem; /* Increase font size for visibility */
+    margin-bottom: 10px;
 }
 
-.release-date {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+.game-rating .bi {
+    color: gold; /* Gold for stars */
+    font-size: 1.5rem; /* Larger stars */
 }
 
 .price {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #AEB6BF; /* Light grey for visual highlight */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .game-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
+
 .add-to-cart {
-    background-color: #445c66;
-    border: none;
+    background-color: #007bff; 
+    color: white;
     padding: 10px 20px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .add-to-cart:hover {
-    background-color: #5D6D7E;
-    cursor: pointer;
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
 }
