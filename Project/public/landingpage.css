@@ -121,6 +121,7 @@ body {
     border-radius: 5px !important;
 }
 .card{
+    height: 24rem;
     width: 16.5rem;
     margin: 1%;
     background-color: #28424c;
@@ -146,6 +147,7 @@ body {
 }
 
 .card-text {
+    margin-top: 0;
     font-size: 0.9rem;
     font-weight: 600 ;
 }

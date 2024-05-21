@@ -36,3 +36,4 @@ server.set("view engine", "ejs");
 server.use("/", require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
 server.use("/", require("./routes/site/contact-us"));
+server.use("/", require("./routes/api/store"));
