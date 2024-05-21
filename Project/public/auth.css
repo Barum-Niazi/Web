@@ -2,13 +2,16 @@ body {
     background-color: #132020 ;
     margin: 0;
     color: white;
+    background-image:url("/images/background image.jpg");
+    background-size: cover;
 }
 
 .card {
-    background-color: #1c2d2d;
+    background-color: #1c2d2dd3;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;    
     border: none;
     border-radius: 1rem;
+
 }
 
 .btn{
@@ -37,6 +40,10 @@ h3.card-title {
     justify-content: space-evenly !important;
     align-items: flex-start !important;
 
+}
+
+.extra>a{
+    color: white;
 }
 
 .form-control{
