@@ -45,7 +45,6 @@ router.post("/login", async (req, res) => {
         if (result) {
             console.log("Login successful");
             req.session.user = user;
-            res.flash("success", "Login successful");
             res.redirect("/");
         } else {
             res.flash("danger", "Invalid credentials");
