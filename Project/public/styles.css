@@ -121,7 +121,7 @@ body {
     border-radius: 5px !important;
 }
 .card{
-    height: 24rem;
+    height: 26rem;
     width: 16.5rem;
     margin: 1%;
     background-color: #28424c;
@@ -234,3 +234,134 @@ body {
     }
 }
     
+.store-container {
+    padding-top: 5rem;
+    color: white;
+}
+
+
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    margin: auto;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(to right, #2c3e506b 0%, #34495ea8 100%);
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    width: max-content; /* Fit to content size */
+}
+
+.filter-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #FFF;
+    background-color: #5D6D7E;
+    border: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.filter-button:hover {
+    background-color: #AEB6BF;
+    color: #1C2833;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.filter-button i {
+    margin-right: 8px; /* Icon spacing */
+    font-size: 1.2rem; /* Icon size */
+}
+
+.btn-outline-light {
+    border-color: #FFF;
+}
+
+.pagination {
+    margin-top: 2rem;
+}
+
+.page-item .page-link {
+    color: white;
+    background-color: #1c2d2d;
+    border: none;
+}
+
+.page-item.active .page-link {
+    background-color: #445c66;
+    border-color: #445c66;
+}
+.bi {
+    font-size: 1.4rem; /* Increase icon size */
+    vertical-align: -.125em; /* Align icon with text */
+}
+
+/* description page styles */
+.game-description-container {
+    color: white;
+    padding: 2rem;
+    background-color: #1c2d2d;  /* Consistent with other pages */
+}
+
+.game-header {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-cover-image {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.game-details {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(34, 40, 43, 0.9); /* Semi-transparent dark background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.game-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.release-date {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #AEB6BF; /* Light grey for visual highlight */
+}
+
+.game-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.add-to-cart {
+    background-color: #445c66;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #5D6D7E;
+    cursor: pointer;
+}
