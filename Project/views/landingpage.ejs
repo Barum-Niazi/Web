@@ -99,14 +99,15 @@
         <% }) %>
     </div>
     <div class="customers-choose">
-        <h1>CUSTOMERS CHOICE</h1>
+        <h1>CUSTOMERS CHOOSE</h1>
         <div class="customers-div">
-            <img class="customer-img" src="/images/ac-mirage.jpg" />
-            <img class="customer-img" src="/images/starfield.jpg" />
-            <img class="customer-img" src="/images/horizon.jpg" />
-            <img class="customer-img" src="/images/metro.jpg" />
-            <img class="customer-img" src="/images/sekiro.jpg" />
-            <img class="customer-img" src="/images/stardew.jpg" />
+            <% customersChoice.forEach (game => { %>
+            <img
+                class="customer-img"
+                src="<%= game.coverImage %>"
+                alt="<%= game.name %>"
+            />
+            <% }) %>
         </div>
     </div>
 </div>

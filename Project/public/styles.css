@@ -168,26 +168,25 @@ body {
     cursor: pointer;
 }
 
-.customers-choose
-{
+.customers-choose {
     width: 100%;
-    color:white;
+    color: white;
     padding: 2%;
 }
 
-.customers-choose h1{
+.customers-choose h1 {
     font-size: 1.6rem;
 }
 
-.container{
+.container {
     background-color: #132020;
 }
 
-.text-center{
+.text-center {
     background-color: #132020 !important;
 }
 
-.customers-div{
+.customers-div {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -195,19 +194,18 @@ body {
     margin-left: -1%;
 }
 
-.customer-img{
+.customer-img {
     margin: 1%;
-    width: 15%;
+    width: 23%;
     height: 55vh;
     object-fit: fill;
-    transition:transform 0.3s ease ;
+    transition: transform 0.3s ease;
 }
 
-.customer-img:hover{
+.customer-img:hover {
     transform: translateY(-5px);
     cursor: pointer;
 }
-
 @media only screen and (max-width: 768px){
     .featured-games{
         padding-top: 5%

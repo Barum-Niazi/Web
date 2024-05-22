@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+$(document).ready(function () {
     function doBindings() {
         const cards = document.querySelectorAll(".card");
         console.log(`Binding events to ${cards.length} cards.`);
