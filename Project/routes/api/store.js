@@ -45,4 +45,24 @@ router.get("/store/description/:name", authJWT, async (req, res) => {
     res.render("description", { game });
 });
 
+router.get("/add-to-cart/:name", (req, res) => {
+    const { name } = req.params;
+    let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
+
+    // Add game to cart if not already present
+    if (!cart.includes(name)) {
+        cart.push(name);
+    }
+
+    // Update the cart cookie
+    res.cookie("cart", JSON.stringify(cart), {
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        httpOnly: true,
+    });
+
+    console.log("Added to cart:", cart);
+    console.log("cookie:", req.cookies.cart);
+    console.log("Set-Cookie header:", res.getHeader("Set-Cookie"));
+});
+
 module.exports = router;

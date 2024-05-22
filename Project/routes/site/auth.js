@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
         if (isMatch) {
             console.log("Login successful");
             req.session.user = user;
-            const payload = { user: { id: user.id } };
+            const payload = { user: { id: user.id, name: user.name } };
             const token = jwt.sign(payload, config.get("jwtSecret"), {
                 expiresIn: 3600,
             });
@@ -55,7 +55,6 @@ router.post("/login", async (req, res) => {
             res.cookie("token", token, {
                 httpOnly: true,
             });
-            res.flash("success", "Login successful");
             res.redirect("/");
         } else {
             res.flash("danger", "Invalid credentials");

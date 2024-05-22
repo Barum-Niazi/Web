@@ -1,26 +1,40 @@
 $(document).ready(function () {
-    function doBindings() {
-        const cards = document.querySelectorAll(".card");
-        console.log(`Binding events to ${cards.length} cards.`);
-        cards.forEach((card) => {
-            card.addEventListener("click", function (event) {
-                event.preventDefault();
-                const gameName = this.getAttribute("data-name");
-                console.log(`Clicked on game: ${gameName}`);
-                if (gameName) {
-                    showDescription(gameName);
-                } else {
-                    console.error("Game name is not available");
-                }
+    async function addToCart(event) {
+        console.log("Adding to cart");
+        event.preventDefault();
+        event.stopPropagation();
+
+        const gameName = this.getAttribute("data-game-name");
+        if (!gameName) {
+            console.error("Game name is missing");
+            return;
+        }
+
+        try {
+            await fetch(`/add-to-cart/${encodeURIComponent(gameName)}`, {
+                method: "GET",
             });
+        } catch (error) {
+            console.error("Error adding to cart:", error);
+        }
+    }
+
+    // Handle card click for navigation to description page
+    document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("click", function (event) {
+            if (!event.target.closest(".btn")) {
+                // Ignore clicks on buttons
+                const gameName = this.getAttribute("data-name");
+                if (gameName) {
+                    window.location.href = `/store/description/${encodeURIComponent(
+                        gameName
+                    )}`;
+                }
+            }
         });
-    }
+    });
 
-    function showDescription(gameName) {
-        window.location.href = `/store/description/${encodeURIComponent(
-            gameName
-        )}`;
-    }
-
-    doBindings();
+    document.querySelectorAll(".cart-button").forEach((button) => {
+        button.addEventListener("click", addToCart);
+    });
 });

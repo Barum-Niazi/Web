@@ -4,7 +4,10 @@ const config = require("config");
 module.exports = (req, res, next) => {
     const token = req.cookies.token;
     if (!token) {
-        res.flash("danger", "JWT Token auth failed");
+        res.flash(
+            "danger",
+            "JWT Token auth failed, Please sign in to view this page."
+        );
         return res.redirect("/login");
     }
     try {
@@ -12,6 +15,7 @@ module.exports = (req, res, next) => {
         req.user = decoded.user;
         next();
     } catch (err) {
-        res.flash("danger", +err.message);
+        res.flash("danger", "Invalid token, please login again.");
+        return res.redirect("/login");
     }
 };

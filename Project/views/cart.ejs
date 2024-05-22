@@ -1,0 +1,10 @@
+<div class="container mt-5">
+    <h1>Your Cart</h1>
+    <ul class="list-group">
+        <% if (cart.length > 0) { %> <% cart.forEach(function(item) { %>
+        <li class="list-group-item"><%= item %></li>
+        <% }) %> <% } else { %>
+        <li class="list-group-item">Your cart is empty</li>
+        <% } %>
+    </ul>
+</div>

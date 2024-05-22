@@ -30,10 +30,11 @@ server.use(
     })
 );
 
+server.use(cookieParser());
+
+server.use(require("./middlewares/cartMiddleware"));
 server.use(require("./middlewares/styleMiddleware"));
 server.use(require("./middlewares/flashMiddleware"));
-
-server.use(cookieParser());
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
@@ -51,6 +52,7 @@ server.use("/", require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
 server.use("/", require("./routes/site/contact-us"));
 server.use("/", require("./routes/api/store"));
+server.use("/", require("./routes/site/cart"));
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
