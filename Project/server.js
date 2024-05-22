@@ -3,6 +3,7 @@ const server = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
 const config = require("config");
+const cookieParser = require("cookie-parser");
 let expressLayouts = require("express-ejs-layouts");
 
 const PORT = config.get("port");
@@ -31,6 +32,8 @@ server.use(
 
 server.use(require("./middlewares/styleMiddleware"));
 server.use(require("./middlewares/flashMiddleware"));
+
+server.use(cookieParser());
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));

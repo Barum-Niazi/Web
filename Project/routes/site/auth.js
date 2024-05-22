@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 
 router.get("/register", (req, res) => {
     res.render("auth/register", { layout: false });
@@ -41,16 +43,26 @@ router.post("/login", async (req, res) => {
             return res.redirect("/login");
         }
 
-        const result = await bcrypt.compare(req.body.password, user.password);
-        if (result) {
+        const isMatch = await bcrypt.compare(req.body.password, user.password);
+        if (isMatch) {
             console.log("Login successful");
             req.session.user = user;
+            const payload = { user: { id: user.id } };
+            const token = jwt.sign(payload, config.get("jwtSecret"), {
+                expiresIn: 3600,
+            });
+
+            res.cookie("token", token, {
+                httpOnly: true,
+            });
+            res.flash("success", "Login successful");
             res.redirect("/");
         } else {
             res.flash("danger", "Invalid credentials");
             res.redirect("/login");
         }
     } catch (err) {
+        console.error("Error during login:", err);
         res.flash("danger", "Error during login");
         res.redirect("/login");
     }
@@ -58,6 +70,7 @@ router.post("/login", async (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.session.user = null;
+    res.clearCookie("token");
     res.flash("success", "Logged out successfully");
     res.redirect("/login");
 });
