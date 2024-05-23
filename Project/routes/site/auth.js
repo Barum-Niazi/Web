@@ -52,10 +52,7 @@ router.post("/login", async (req, res) => {
                 expiresIn: 3600,
             });
 
-            res.cookie("token", token, {
-                httpOnly: true,
-            });
-            res.redirect("/");
+            res.header("x-auth-token", token);
         } else {
             res.flash("danger", "Invalid credentials");
             res.redirect("/login");
@@ -69,7 +66,6 @@ router.post("/login", async (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.session.user = null;
-    res.clearCookie("token");
     res.flash("success", "Logged out successfully");
     res.redirect("/login");
 });
