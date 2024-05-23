@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const fetchGames = require("../../middlewares/gameMiddleware");
+const Game = require("../../models/Game");
 
-router.get("/", fetchGames, (req, res) => {
-    res.render("landingpage");
+router.get("/", async (req, res) => {
+    games = await Game.aggregate([{ $sample: { size: 10 } }]);
+    customersChoice = await Game.aggregate([{ $sample: { size: 4 } }]);
+    res.render("landingpage", { games, customersChoice });
 });
 
 router.get("/api", (req, res) => {

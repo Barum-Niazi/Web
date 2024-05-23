@@ -19,7 +19,6 @@ $(document).ready(function () {
         }
     }
 
-    // Handle card click for navigation to description page
     document.querySelectorAll(".card").forEach((card) => {
         card.addEventListener("click", function (event) {
             if (!event.target.closest(".btn")) {
@@ -30,6 +29,18 @@ $(document).ready(function () {
                         gameName
                     )}`;
                 }
+            }
+        });
+    });
+
+    document.querySelectorAll(".customer-img").forEach((img) => {
+        img.addEventListener("click", function (event) {
+            const gameName = this.getAttribute("alt");
+            console.log("Game name:", gameName);
+            if (gameName) {
+                window.location.href = `/store/description/${encodeURIComponent(
+                    gameName
+                )}`;
             }
         });
     });

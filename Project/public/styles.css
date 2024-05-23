@@ -176,36 +176,67 @@ body {
 
 .customers-choose h1 {
     font-size: 1.6rem;
-}
-
-.container {
-    background-color: #132020;
+    color: white; /* Change to white */
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .text-center {
     background-color: #132020 !important;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .customers-div {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
-    margin-left: -1%;
+    margin-left: 0;
 }
 
-.customer-img {
+.customer-img-container {
+    position: relative;
     margin: 1%;
     width: 23%;
     height: 55vh;
-    object-fit: fill;
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.customer-img:hover {
+.customer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.customer-img-container:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     cursor: pointer;
 }
+
+.customer-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.customer-img-container:hover .customer-overlay {
+    opacity: 1;
+}
+
+
 @media only screen and (max-width: 768px){
     .featured-games{
         padding-top: 5%
@@ -271,8 +302,8 @@ body {
 }
 
 .filter-button i {
-    margin-right: 8px; /* Icon spacing */
-    font-size: 1.2rem; /* Icon size */
+    margin-right: 8px; 
+    font-size: 1.2rem; 
 }
 
 .btn-outline-light {
@@ -342,14 +373,14 @@ body {
 }
 
 .game-title {
-    color: #FFD700; /* Golden color for better visibility */
-    font-size: 2.5rem; /* Increase font size for visibility */
+    color: #FFD700; 
+    font-size: 2.5rem; 
     margin-bottom: 10px;
 }
 
 .game-rating .bi {
-    color: gold; /* Gold for stars */
-    font-size: 1.5rem; /* Larger stars */
+    color: gold; 
+    font-size: 1.5rem;
 }
 
 .price {
@@ -390,7 +421,7 @@ body {
 }
 
 .cart-header {
-    color: #FFD700; /* Updated color for better visibility */
+    color: #FFD700; 
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;

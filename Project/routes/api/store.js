@@ -49,12 +49,10 @@ router.get("/add-to-cart/:name", (req, res) => {
     const { name } = req.params;
     let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
 
-    // Add game to cart if not already present
     if (!cart.includes(name)) {
         cart.push(name);
     }
 
-    // Update the cart cookie
     res.cookie("cart", JSON.stringify(cart), {
         maxAge: 24 * 60 * 60 * 1000, // 1 day
         httpOnly: true,
