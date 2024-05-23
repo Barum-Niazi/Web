@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+$(document).ready(function () {
     function doBindings() {
         let genreButtons = document.getElementsByClassName("filter-button");
         for (let button of genreButtons) {
