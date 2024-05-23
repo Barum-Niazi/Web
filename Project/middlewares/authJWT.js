@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 module.exports = (req, res, next) => {
-    const token = req.cookies.token;
+    const token = req.header("x-auth-token");
+    console.log("Token from header:", token);
     if (!token) {
         res.flash(
             "danger",

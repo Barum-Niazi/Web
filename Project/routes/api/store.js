@@ -18,7 +18,7 @@ router.get("/store", authJWT, async (req, res) => {
     });
 });
 
-router.get("/store/genre/:genre", authJWT, async (req, res) => {
+router.get("/store/genre/:genre", async (req, res) => {
     const { genre } = req.params;
     const pageNum = parseInt(req.query.page) || 1;
     const limit = 25;
@@ -37,11 +37,11 @@ router.get("/store/genre/:genre", authJWT, async (req, res) => {
     });
 });
 
-router.get("/store/description/:name", authJWT, async (req, res) => {
+router.get("/store/description/:name", async (req, res) => {
     const { name } = req.params;
     const game = await Game.findOne({
         name: new RegExp("^" + name + "$", "i"),
-    }); // case-insensitive
+    });
     res.render("description", { game });
 });
 
@@ -54,7 +54,7 @@ router.get("/add-to-cart/:name", (req, res) => {
     }
 
     res.cookie("cart", JSON.stringify(cart), {
-        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
     });
 

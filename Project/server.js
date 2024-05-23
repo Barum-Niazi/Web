@@ -10,6 +10,9 @@ const PORT = config.get("port");
 const MONGO = config.get("mongoURI");
 const SESSIONSECRET = config.get("sessionSecret");
 const fetchAndStoreGames = require("./utils/fetchData");
+const attachToken = require("./middlewares/attachToken");
+const authJWT = require("./middlewares/authJWT");
+const sessionAuth = require("./middlewares/sessionAuth");
 
 server.use(express.static("public"));
 
@@ -48,7 +51,7 @@ mongoose
         console.log("Error connecting to MongoDB", err);
     });
 
-server.use("/", require("./routes/site/landingpage"));
+server.use("/", attachToken, require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
 server.use("/", require("./routes/site/contact-us"));
 server.use("/", require("./routes/api/store"));
