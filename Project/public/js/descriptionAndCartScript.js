@@ -48,4 +48,17 @@ $(document).ready(function () {
     document.querySelectorAll(".cart-button").forEach((button) => {
         button.addEventListener("click", addToCart);
     });
+
+    document.querySelectorAll(".carousel-item").forEach((item) => {
+        item.addEventListener("click", function (event) {
+            const img = this.querySelector("img");
+            const gameName = img.getAttribute("alt");
+            console.log("Game name:", gameName);
+            if (gameName) {
+                window.location.href = `/store/description/${encodeURIComponent(
+                    gameName
+                )}`;
+            }
+        });
+    });
 });

@@ -3,7 +3,7 @@ const router = express.Router();
 const Game = require("../../models/Game");
 const authJWT = require("../../middlewares/authJWT");
 
-router.get("/store", authJWT, async (req, res) => {
+router.get("/store", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = 25;
     const totalGames = await Game.countDocuments();
