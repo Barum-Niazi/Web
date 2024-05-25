@@ -22,127 +22,113 @@
         <title>GameStore</title>
     </head>
     <body>
-        <a id="top"></a>
-        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">GameStore</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon bg-white"></span>
-                </button>
-                <div
-                    class="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="/"
-                                >Home</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/store">Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact-us"
-                                >Contact Us</a
-                            >
-                        </li>
-                        <% if (user) { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout</a>
-                        </li>
-                        <% } else { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/register">Register</a>
-                        </li>
-                        <% } %>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input
-                            class="form-control me-2"
-                            id="searchBar"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
-                    </form>
-                    <a class="nav-link" href="/cart">
-                        <i class="bi bi-cart" style="font-size: 28px"></i>
+        <div id="page-container">
+            <a id="top"></a>
+            <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">GameStore</a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon bg-white"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link active"
+                                    aria-current="page"
+                                    href="/"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/store">Store</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/contact-us"
+                                    >Contact Us</a
+                                >
+                            </li>
+                            <% if (user) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                            <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register"
+                                    >Register</a
+                                >
+                            </li>
+                            <% } %>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input
+                                class="form-control me-2"
+                                id="searchBar"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                            />
+                        </form>
+                        <a class="nav-link" href="/cart">
+                            <i class="bi bi-cart" style="font-size: 28px"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <main><%- body %></main>
+            <footer class="footer-container">
+                <div class="footer-links">
+                    <a
+                        href="https://www.facebook.com/barum.khan.5/"
+                        class="footer-link"
+                        target="_blank"
+                    >
+                        <i class="fab fa-facebook-f footer-social-icons"></i>
+                    </a>
+                    <a
+                        href="https://www.instagram.com/barumniazi/"
+                        class="footer-link"
+                        target="_blank"
+                    >
+                        <i class="fab fa-instagram footer-social-icons"></i>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/barum-khan-89312b2b3/"
+                        class="footer-link"
+                        target="_blank"
+                    >
+                        <i class="fab fa-linkedin footer-social-icons"></i>
+                    </a>
+                    <a
+                        href="https://www.github.com/Barum-Niazi"
+                        class="footer-link"
+                        target="_blank"
+                    >
+                        <i class="fab fa-github footer-social-icons"></i>
                     </a>
                 </div>
-            </div>
-        </nav>
-        <main><%- body %></main>
-        <footer class="text-center bg-body-tertiary">
-            <div class="container pt-4" id="footer">
-                <section class="mb-4">
-                    <a
-                        data-mdb-ripple-init
-                        class="btn btn-link btn-floating btn-lg text-body m-1"
-                        href="https://www.facebook.com/barum.khan.5/"
-                        role="button"
-                        data-mdb-ripple-color="dark"
-                        target="_blank"
-                        ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a
-                        data-mdb-ripple-init
-                        class="btn btn-link btn-floating btn-lg text-body m-1"
-                        href="https://www.instagram.com/barumniazi/"
-                        role="button"
-                        data-mdb-ripple-color="dark"
-                        target="_blank"
-                        ><i class="fab fa-instagram"></i
-                    ></a>
-                    <a
-                        data-mdb-ripple-init
-                        class="btn btn-link btn-floating btn-lg text-body m-1"
-                        href="https://www.linkedin.com/in/barum-khan-89312b2b3/"
-                        role="button"
-                        data-mdb-ripple-color="dark"
-                        target="_blank"
-                        ><i class="fab fa-linkedin"></i
-                    ></a>
-                    <a
-                        data-mdb-ripple-init
-                        class="btn btn-link btn-floating btn-lg text-body m-1"
-                        href="https://www.github.com/Barum-Niazi"
-                        role="button"
-                        data-mdb-ripple-color="dark"
-                        target="_blank"
-                        ><i class="fab fa-github"></i
-                    ></a>
-                </section>
-            </div>
-            <div
-                class="text-center p-3"
-                style="
-                    background-color: rgba(0, 0, 0, 0.05) !important;
-                    color: white !important;
-                "
-            >
-                © 2024 Copyright:
-                <a class="text-body" href="#top" style="color: white !important"
-                    >GameStore.com</a
-                >
-            </div>
-        </footer>
+                <div class="footer-text">
+                    © 2024 Copyright:
+                    <a href="#top" style="color: inherit">GameStore.com</a>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>

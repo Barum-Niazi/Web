@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Game = require("../../models/Game");
 const authJWT = require("../../middlewares/authJWT");
+const User = require("../../models/User");
+const sessionAuth = require("../../middlewares/sessionAuth");
 
 router.get("/store", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -45,22 +47,18 @@ router.get("/store/description/:name", async (req, res) => {
     res.render("description", { game });
 });
 
-router.get("/add-to-cart/:name", (req, res) => {
-    const { name } = req.params;
-    let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
+router.post("/add-to-cart/:name", sessionAuth, async (req, res) => {
+    const name = req.params.name;
+    const user = await User.findOne({ email: req.session.user.email });
+    user.cart.items.push(name);
+    await user.save();
+});
 
-    if (!cart.includes(name)) {
-        cart.push(name);
-    }
-
-    res.cookie("cart", JSON.stringify(cart), {
-        maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: true,
-    });
-
-    console.log("Added to cart:", cart);
-    console.log("cookie:", req.cookies.cart);
-    console.log("Set-Cookie header:", res.getHeader("Set-Cookie"));
+router.delete("/remove-from-cart/:name", sessionAuth, async (req, res) => {
+    const name = req.params.name;
+    const user = await User.findOne({ email: req.session.user.email });
+    user.cart.items = user.cart.items.filter((item) => item !== name);
+    await user.save();
 });
 
 module.exports = router;

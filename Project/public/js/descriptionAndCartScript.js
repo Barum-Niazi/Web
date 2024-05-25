@@ -1,64 +1,76 @@
 $(document).ready(function () {
-    async function addToCart(event) {
-        console.log("Adding to cart");
+    function addToCart(event) {
         event.preventDefault();
-        event.stopPropagation();
-
-        const gameName = this.getAttribute("data-game-name");
+        var gameName = $(this).attr("data-game-name");
         if (!gameName) {
             console.error("Game name is missing");
             return;
         }
 
-        try {
-            await fetch(`/add-to-cart/${encodeURIComponent(gameName)}`, {
-                method: "GET",
+        $.post(`/add-to-cart/${encodeURIComponent(gameName)}`)
+            .done(function () {
+                console.log("Added to cart:", gameName);
+            })
+            .fail(function (error) {
+                console.error("Error adding to cart:", error);
             });
-        } catch (error) {
-            console.error("Error adding to cart:", error);
-        }
     }
 
-    document.querySelectorAll(".card").forEach((card) => {
-        card.addEventListener("click", function (event) {
-            if (!event.target.closest(".btn")) {
-                // Ignore clicks on buttons
-                const gameName = this.getAttribute("data-name");
-                if (gameName) {
-                    window.location.href = `/store/description/${encodeURIComponent(
-                        gameName
-                    )}`;
+    function removeFromCart(gameName) {
+        $.ajax({
+            url: `/remove-from-cart/${encodeURIComponent(gameName)}`,
+            type: "DELETE",
+            success: function (data) {
+                if (data.success) {
+                    location.reload(); // Reload page to reflect cart change
+                } else {
+                    alert(data.message || "Error removing item from cart");
                 }
-            }
+            },
+            error: function (error) {
+                alert("Error removing item from cart: " + error);
+            },
         });
-    });
+    }
 
-    document.querySelectorAll(".customer-img").forEach((img) => {
-        img.addEventListener("click", function (event) {
-            const gameName = this.getAttribute("alt");
-            console.log("Game name:", gameName);
+    $(".card").on("click", function (event) {
+        if (!$(event.target).closest(".btn").length) {
+            var gameName = $(this).data("name");
             if (gameName) {
                 window.location.href = `/store/description/${encodeURIComponent(
                     gameName
                 )}`;
             }
-        });
+        }
     });
 
-    document.querySelectorAll(".cart-button").forEach((button) => {
-        button.addEventListener("click", addToCart);
+    $(".customer-img").on("click", function () {
+        var gameName = $(this).attr("alt");
+        if (gameName) {
+            window.location.href = `/store/description/${encodeURIComponent(
+                gameName
+            )}`;
+        }
     });
 
-    document.querySelectorAll(".carousel-item").forEach((item) => {
-        item.addEventListener("click", function (event) {
-            const img = this.querySelector("img");
-            const gameName = img.getAttribute("alt");
-            console.log("Game name:", gameName);
-            if (gameName) {
-                window.location.href = `/store/description/${encodeURIComponent(
-                    gameName
-                )}`;
-            }
-        });
+    $(".cart-button").on("click", addToCart);
+
+    $(".carousel-item").on("click", function () {
+        var img = $(this).find("img");
+        var gameName = img.attr("alt");
+        if (gameName) {
+            window.location.href = `/store/description/${encodeURIComponent(
+                gameName
+            )}`;
+        }
+    });
+
+    $(".remove-item").on("click", function () {
+        var gameName = $(this)
+            .closest(".cart-item")
+            .find(".item-name")
+            .text()
+            .trim();
+        removeFromCart(gameName);
     });
 });

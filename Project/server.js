@@ -35,7 +35,6 @@ server.use(
 
 server.use(cookieParser());
 
-server.use(require("./middlewares/cartMiddleware"));
 server.use(require("./middlewares/styleMiddleware"));
 server.use(require("./middlewares/flashMiddleware"));
 

@@ -1,29 +1,33 @@
 <div class="container mt-5 cart-container">
     <h1 class="cart-header">Your Cart</h1>
     <ul class="list-group cart-list">
-        <% if (cart.length > 0) { %> <% cart.forEach(function(item) { %>
+        <% if (games && games.length > 0) { %> <% games.forEach(function(game) {
+        %>
         <li class="list-group-item cart-item">
             <div class="item-details">
-                <img src="<%= item.coverImage %>" alt="<%= item.name %>" />
+                <img src="<%= game.coverImage %>" alt="<%= game.name %>" />
                 <div class="item-info">
-                    <h4 class="item-name"><%= item.name %></h4>
-                    <p class="item-price">$<%= item.price.toFixed(2) %></p>
+                    <h4 class="item-name"><%= game.name %></h4>
+                    <p class="item-price">$<%= game.price.toFixed(2) %></p>
                 </div>
-                <button class="remove-item">
+                <button
+                    class="remove-item"
+                    onclick="removeFromCart('<%= game.name %>');"
+                >
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
         </li>
-        <% }) %> <% } else { %>
+        <% }); %> <% } else { %>
         <li class="list-group-item cart-item">Your cart is empty</li>
         <% } %>
     </ul>
-    <% if (cart.length > 0) { %>
+    <% if (games && games.length > 0) { %>
     <div class="cart-total">
         <span>Total:</span>
         <span
-            >$<%= cart.reduce((total, item) => total + item.price, 0).toFixed(2)
-            %></span
+            >$<%= games.reduce((total, game) => total + game.price,
+            0).toFixed(2) %></span
         >
     </div>
     <button class="cart-checkout">

@@ -1,3 +1,17 @@
+html, body {
+    height: 100%; /* Ensures the full height of the viewport is used */
+    margin: 0; /* Removes default margin */
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+}
+
+main {
+    flex: 1; /* Allows main content to expand and push the footer down */
+}
 body {
     background-color: #1c2d2d;
 }
@@ -28,6 +42,40 @@ body {
 .navbar-toggler{
     background-color: white !important;
 }
+.footer-container {
+    width: 100%;
+    background-color: rgba(34, 40, 43, 0.8);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    padding: 10px 0;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 10px;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-social-icons {
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.footer-text {
+    font-size: 0.8rem;
+    padding-top: 10px;
+}
+
 
 #searchBar {
     width: 150px; 
