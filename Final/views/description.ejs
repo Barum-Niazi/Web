@@ -1,0 +1,31 @@
+<div class="game-description-container">
+    <div class="game-background">
+        <div
+            class="game-header"
+            style="background-image: url('<%= game.coverImage %>')"
+        ></div>
+        <div
+            class="game-cover"
+            style="background-image: url('<%= game.backgroundImage %>')"
+        ></div>
+    </div>
+    <div class="game-details">
+        <h1 class="game-title"><%= game.name %></h1>
+        <div class="game-rating">
+            <% for (let i = 1; i <= Math.floor(game.rating); i++) { %>
+            <i class="bi bi-star-fill"></i>
+            <% } %> <% if (game.rating % 1 !== 0) { %>
+            <i class="bi bi-star-half"></i>
+            <% } %>
+        </div>
+        <h2 class="price">$<%= game.price.toFixed(2) %></h2>
+        <p class="game-description"><%= game.description %></p>
+        <button
+            class="btn btn-primary cart-button"
+            data-game-name="<%= game.name %>"
+        >
+            <i class="bi bi-cart"></i> Add to Cart
+        </button>
+    </div>
+</div>
+<script src="/js/descriptionAndCartScript.js"></script>

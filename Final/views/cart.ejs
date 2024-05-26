@@ -1,0 +1,36 @@
+<div class="container mt-5 cart-container">
+    <h1 class="cart-header">Your Cart</h1>
+    <ul class="list-group cart-list">
+        <% if (games && games.length > 0) { %> <% games.forEach(function(game) {
+        %>
+        <li class="list-group-item cart-item">
+            <div class="item-details">
+                <img src="<%= game.coverImage %>" alt="<%= game.name %>" />
+                <div class="item-info">
+                    <h4 class="item-name"><%= game.name %></h4>
+                    <p class="item-price">$<%= game.price.toFixed(2) %></p>
+                </div>
+                <button class="remove-item" data-name="<%= game.name %>">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </li>
+        <% }); %> <% } else { %>
+        <li class="list-group-item cart-item">Your cart is empty</li>
+        <% } %>
+    </ul>
+    <% if (games && games.length > 0) { %>
+    <div class="cart-total">
+        <span>Total:</span>
+        <span
+            >$<%= games.reduce((total, game) => total + game.price,
+            0).toFixed(2) %></span
+        >
+    </div>
+    <button class="cart-checkout">
+        <i class="bi bi-credit-card"></i>
+        Proceed to Checkout
+    </button>
+    <% } %>
+</div>
+<script src="/js/descriptionAndCartScript.js"></script>
