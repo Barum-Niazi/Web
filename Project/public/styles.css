@@ -617,6 +617,7 @@ body {
     cursor: pointer;
     transition: color 0.3s;
     margin-left: auto;
+    z-index: 1000;
 }
 
 .remove-item:hover {

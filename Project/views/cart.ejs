@@ -10,7 +10,7 @@
                     <h4 class="item-name"><%= game.name %></h4>
                     <p class="item-price">$<%= game.price.toFixed(2) %></p>
                 </div>
-                <button class="remove-item">
+                <button class="remove-item" data-name="<%= game.name %>">
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
@@ -33,3 +33,4 @@
     </button>
     <% } %>
 </div>
+<script src="/js/descriptionAndCartScript.js"></script>

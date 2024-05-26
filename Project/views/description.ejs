@@ -20,8 +20,12 @@
         </div>
         <h2 class="price">$<%= game.price.toFixed(2) %></h2>
         <p class="game-description"><%= game.description %></p>
-        <button class="btn btn-primary add-to-cart">
+        <button
+            class="btn btn-primary cart-button"
+            data-game-name="<%= game.name %>"
+        >
             <i class="bi bi-cart"></i> Add to Cart
         </button>
     </div>
 </div>
+<script src="/js/descriptionAndCartScript.js"></script>

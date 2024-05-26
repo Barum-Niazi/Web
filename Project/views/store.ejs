@@ -50,7 +50,11 @@
             <div class="card-body">
                 <h5 class="card-title"><%= game.name %></h5>
                 <p class="card-text">$<%= game.price %></p>
-                <a href="#" class="btn btn-secondary cart-button">
+                <a
+                    href="#"
+                    class="btn btn-secondary cart-button"
+                    data-game-name="<%= game.name %>"
+                >
                     <i class="bi bi-cart"></i>
                     <span class="d-none d-md-inline">Add to Cart</span>
                 </a>

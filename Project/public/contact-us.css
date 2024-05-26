@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0; 
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex: 1; 
+}
+
 body {
     background-color: #132020 ;
 }
@@ -78,11 +93,38 @@ body {
     cursor: pointer;
 }
 
-.footer{
-    background-color: #132020;
+.footer-container {
+    width: 100%;
+    background-color: rgba(34, 40, 43, 0.8);
     color: white;
-    padding: 2%;
+    padding: 20px 0;
     text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    padding: 10px 0;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 10px;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-social-icons {
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.footer-text {
+    font-size: 0.8rem;
+    padding-top: 10px;
 }
 
 @media screen and (max-width: 768px) {

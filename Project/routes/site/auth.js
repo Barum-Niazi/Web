@@ -47,13 +47,13 @@ router.post("/login", async (req, res) => {
         if (isMatch) {
             console.log("Login successful");
             req.session.user = user;
-            const payload = { user: { id: user.id, name: user.name } };
+            const payload = { user: { id: user.id, email: user.email } };
             const token = jwt.sign(payload, config.get("jwtSecret"), {
                 expiresIn: 3600,
             });
 
-            req.session.token = token;
-            res.redirect("/");
+            res.setHeader("x-auth-token", `${token}`);
+            res.send({ message: "Login successful" });
         } else {
             res.flash("danger", "Invalid credentials");
             res.redirect("/login");
