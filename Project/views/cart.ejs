@@ -10,10 +10,7 @@
                     <h4 class="item-name"><%= game.name %></h4>
                     <p class="item-price">$<%= game.price.toFixed(2) %></p>
                 </div>
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart('<%= game.name %>');"
-                >
+                <button class="remove-item">
                     <i class="bi bi-trash"></i>
                 </button>
             </div>
