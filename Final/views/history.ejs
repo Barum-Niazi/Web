@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <h1>Your Search History</h1>
+    <ul class="list-group">
+        <% if (searchHistory.length > 0) { %> <%
+        searchHistory.forEach(function(search) { %>
+        <li class="list-group-item"><%= search %></li>
+        <% }) %> <% } else { %>
+        <li class="list-group-item">No search history found.</li>
+        <% } %>
+    </ul>
+    <a href="/store" class="btn btn-primary mt-3">Back to Store</a>
+</div>
