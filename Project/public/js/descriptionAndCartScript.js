@@ -8,14 +8,14 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: "/api/cart", // Corrected URL
+            url: "/api/cart",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify({ name: gameName }),
             success: function () {
                 console.log("Added to cart:", gameName);
             },
-            error: function (xhr, status, error) {
+            error: function (error) {
                 console.error("Error adding to cart:", error);
             },
         });
