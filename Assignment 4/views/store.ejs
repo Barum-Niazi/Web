@@ -1,0 +1,99 @@
+<div class="store-container">
+    <div class="filter-bar">
+        <button class="btn btn-outline-light filter-button" data-genre="All">
+            <i class="bi bi-collection-fill"></i> All Games
+        </button>
+        <button class="btn btn-outline-light filter-button" data-genre="Action">
+            <i class="bi bi-lightning-fill"></i> Action
+        </button>
+        <button
+            class="btn btn-outline-light filter-button"
+            data-genre="Adventure"
+        >
+            <i class="bi bi-binoculars-fill"></i> Adventure
+        </button>
+        <button class="btn btn-outline-light filter-button" data-genre="RPG">
+            <i class="bi bi-dice-5-fill"></i> RPG
+        </button>
+        <button
+            class="btn btn-outline-light filter-button"
+            data-genre="Shooter"
+        >
+            <i class="bi bi-bullseye"></i> Shooter
+        </button>
+        <button class="btn btn-outline-light filter-button" data-genre="Sports">
+            <i class="bi bi-trophy-fill"></i> Sports
+        </button>
+        <button
+            class="btn btn-outline-light filter-button"
+            data-genre="Strategy"
+        >
+            <i class="bi bi-bricks"></i> Strategy
+        </button>
+        <button class="btn btn-outline-light filter-button" data-genre="Puzzle">
+            <i class="bi bi-puzzle-fill"></i> Puzzle
+        </button>
+    </div>
+
+    <div class="cards-div">
+        <% if (games.length > 0) { %> <% games.forEach(game => { %>
+        <div
+            class="card"
+            data-genre="<%= game.genre %>"
+            data-name="<%= game.name %>"
+        >
+            <img
+                src="<%= game.coverImage %>"
+                class="card-img-top"
+                alt="<%= game.name %>"
+            />
+            <div class="card-body">
+                <h5 class="card-title"><%= game.name %></h5>
+                <p class="card-text">$<%= game.price %></p>
+                <a
+                    href="#"
+                    class="btn btn-secondary cart-button"
+                    data-game-name="<%= game.name %>"
+                >
+                    <i class="bi bi-cart"></i>
+                    <span class="d-none d-md-inline">Add to Cart</span>
+                </a>
+            </div>
+        </div>
+        <% }) %> <% } else { %>
+        <p>No games found in this genre.</p>
+        <% } %>
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <% if (currentPage > 1) { %>
+            <li class="page-item">
+                <a
+                    class="page-link"
+                    href="?page=<%= currentPage - 1 %>"
+                    aria-label="Previous"
+                >
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <% } %> <% for (let i = 1; i <= totalPages; i++) { %>
+            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+            </li>
+            <% } %> <% if (currentPage < totalPages) { %>
+            <li class="page-item">
+                <a
+                    class="page-link"
+                    href="?page=<%= currentPage + 1 %>"
+                    aria-label="Next"
+                >
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
+<script src="/js/storeScript.js"></script>
+<script src="/js/descriptionAndCartScript.js"></script>
