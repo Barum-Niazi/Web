@@ -67,7 +67,6 @@ router.post("/login", async (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.session.user = null;
-    req.session.token = null;
     res.flash("success", "Logged out successfully");
     res.redirect("/login");
 });

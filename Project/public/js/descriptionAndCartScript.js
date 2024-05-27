@@ -7,15 +7,20 @@ $(document).ready(function () {
             return;
         }
 
-        $.post(`/add-to-cart/${encodeURIComponent(gameName)}`)
-            .done(function () {
+        $.ajax({
+            url: "/api/cart", // Corrected URL
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ name: gameName }), // Send data as JSON in the body
+            success: function () {
                 console.log("Added to cart:", gameName);
-            })
-            .fail(function (error) {
+                // Optionally refresh part of your page or notify the user
+            },
+            error: function (xhr, status, error) {
                 console.error("Error adding to cart:", error);
-            });
+            },
+        });
     }
-
     $(".card").on("click", function (event) {
         if (!$(event.target).closest(".btn").length) {
             var gameName = $(this).data("name");
@@ -47,30 +52,4 @@ $(document).ready(function () {
             )}`;
         }
     });
-
-    $(".remove-item ").on("click", function () {
-        var gameName = $(this).closest(".remove-item").data("name");
-        console.log("Icon clicked, removing game:", gameName);
-        removeFromCart(gameName);
-    });
-
-    function removeFromCart(gameName) {
-        console.log("Attempting to remove from cart:", gameName);
-        $.ajax({
-            url: `/remove-from-cart/${encodeURIComponent(gameName)}`,
-            type: "DELETE",
-            success: function (data) {
-                console.log("Remove from cart response:", data);
-                if (data.success) {
-                    location.reload();
-                } else {
-                    alert(data.message || "Error removing item from cart");
-                }
-            },
-            error: function (error) {
-                console.error("Error removing item from cart:", error);
-                alert("Error removing item from cart: " + error);
-            },
-        });
-    }
 });

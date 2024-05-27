@@ -1,17 +1,20 @@
 $(document).ready(function () {
-    fetchCartData(); // Fetch cart data when the page loads
-    // Fetch and build cart data
+    fetchCartData();
     function fetchCartData() {
-        fetch("/api/cart")
-            .then((response) => {
-                console.log("Response:", response);
+        const token = localStorage.getItem("jwtToken"); // Retrieve the token from localStorage
 
+        fetch("/api/cart", {
+            headers: {
+                "x-auth-token": `${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
                 if (!response.ok)
                     throw new Error("Network response was not ok");
                 return response.json();
             })
             .then((data) => {
-                console.log(data); // Log the data to see what's being returned
                 if (data.success && data.games.length > 0) {
                     buildCart(data.games);
                 } else {
@@ -31,7 +34,7 @@ $(document).ready(function () {
             $("#cartItemsList").html(
                 '<li class="list-group-item">Your cart is empty</li>'
             );
-            $(".cart-total, .cart-checkout").hide(); // Hide these elements when cart is empty
+            $(".cart-total, .cart-checkout").hide();
         } else {
             let total = games.reduce((sum, game) => sum + game.price, 0);
             const itemsHtml = games
@@ -54,28 +57,27 @@ $(document).ready(function () {
                 .join("");
             $("#cartItemsList").html(itemsHtml);
             $("#totalPrice").text(`$${total.toFixed(2)}`);
-            $(".cart-total, .cart-checkout").show(); // Show these elements when cart has items
+            $(".cart-total, .cart-checkout").show();
         }
     }
     function removeFromCart(gameName, element) {
-        console.log("Attempting to remove from cart:", gameName);
+        const token = localStorage.getItem("jwtToken"); // Retrieve the token from localStorage
+
         $.ajax({
             url: `/api/cart/${encodeURIComponent(gameName)}`,
             type: "DELETE",
+            headers: {
+                "x-auth-token": `${token}`, // Add the token to the request headers
+            },
             success: function (data) {
-                console.log("Remove from cart response:", data);
                 if (data.success) {
-                    // Remove the item element from the DOM
                     $(element).closest(".cart-item").remove();
-
-                    // Check if there are any items left in the cart
                     if ($("#cartItemsList").children().length === 0) {
                         $("#cartItemsList").html(
                             '<li class="list-group-item">Your cart is empty</li>'
                         );
-                        $(".cart-total, .cart-checkout").hide(); // Hide total and checkout button if cart is empty
+                        $(".cart-total, .cart-checkout").hide();
                     } else {
-                        // Optionally, update total price here without full page reload
                         updateTotalPrice();
                     }
                 } else {
@@ -89,17 +91,15 @@ $(document).ready(function () {
         });
     }
 
-    // Call removeFromCart with the element reference
     $(document).on("click", ".remove-item", function () {
         var gameName = $(this).data("name");
         removeFromCart(gameName, this);
     });
 
-    // Function to update total price dynamically
     function updateTotalPrice() {
         let total = 0;
         $(".item-price").each(function () {
-            total += parseFloat($(this).text().substring(1)); // Assume prices are formatted as "$x.xx"
+            total += parseFloat($(this).text().substring(1));
         });
         $("#totalPrice").text(`$${total.toFixed(2)}`);
     }

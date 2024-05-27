@@ -2,8 +2,9 @@ const express = require("express");
 const Game = require("../../models/Game");
 const router = express.Router();
 const User = require("../../models/User");
+const jwtAuth = require("../../middlewares/authJWT");
 
-router.get("/api/cart", async (req, res) => {
+router.get("/api/cart", jwtAuth, async (req, res) => {
     const user = await User.findOne({ email: req.session.user.email });
     const cartItems = user.cart && user.cart.items ? user.cart.items : [];
 
@@ -18,6 +19,12 @@ router.get("/api/cart", async (req, res) => {
 router.post("/api/cart", async (req, res) => {
     const name = req.body.name;
     const user = await User.findOne({ email: req.session.user.email });
+    if (!user) {
+        return res
+            .status(404)
+            .json({ success: false, message: "User not found" });
+    }
+
     if (!user.cart.items.includes(name)) {
         user.cart.items.push(name);
         await user.save();

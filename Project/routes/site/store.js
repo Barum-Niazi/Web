@@ -45,32 +45,4 @@ router.get("/store/description/:name", async (req, res) => {
     res.render("description", { game });
 });
 
-router.post("/add-to-cart/:name", async (req, res) => {
-    const name = req.params.name;
-    const user = await User.findOne({ email: req.session.user.email });
-    user.cart.items.push(name);
-    await user.save();
-    res.send({ success: true });
-});
-
-router.delete("/remove-from-cart/:name", async (req, res) => {
-    try {
-        const name = req.params.name;
-        const user = await User.findOne({ email: req.session.user.email });
-        if (!user) {
-            return res
-                .status(404)
-                .send({ success: false, message: "User not found" });
-        }
-        user.cart.items = user.cart.items.filter((item) => item !== name);
-        await user.save();
-        res.send({ success: true });
-    } catch (error) {
-        res.status(500).send({
-            success: false,
-            message: "Internal server error",
-        });
-    }
-});
-
 module.exports = router;
