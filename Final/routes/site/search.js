@@ -23,6 +23,7 @@ router.get("/search", async (req, res) => {
         ? { name: { $regex: new RegExp(search, "i") } }
         : {};
 
+    console.log(searchQuery);
     const totalGames = await Game.countDocuments(searchQuery);
     const totalPages = Math.ceil(totalGames / limit);
     const games = await Game.find(searchQuery)

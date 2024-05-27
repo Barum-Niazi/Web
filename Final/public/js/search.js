@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $("#searchForm").on("submit", function (e) {
-        if ($("#searchInput").val() === "") {
+        var searchInput = $("#searchInput").val().trim();
+
+        if (searchInput === "") {
             e.preventDefault();
             alert("Please enter a search term");
         }
