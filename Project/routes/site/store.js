@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Game = require("../../models/Game");
-const authJWT = require("../../middlewares/authJWT");
 const User = require("../../models/User");
-const sessionAuth = require("../../middlewares/sessionAuth");
 
 router.get("/store", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -47,14 +45,15 @@ router.get("/store/description/:name", async (req, res) => {
     res.render("description", { game });
 });
 
-router.post("/add-to-cart/:name", sessionAuth, async (req, res) => {
+router.post("/add-to-cart/:name", async (req, res) => {
     const name = req.params.name;
     const user = await User.findOne({ email: req.session.user.email });
     user.cart.items.push(name);
     await user.save();
+    res.send({ success: true });
 });
 
-router.delete("/remove-from-cart/:name", sessionAuth, async (req, res) => {
+router.delete("/remove-from-cart/:name", async (req, res) => {
     try {
         const name = req.params.name;
         const user = await User.findOne({ email: req.session.user.email });
