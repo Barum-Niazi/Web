@@ -51,7 +51,7 @@ mongoose
 server.use("/", require("./routes/site/landingpage"));
 server.use("/", require("./routes/site/auth"));
 server.use("/", require("./routes/site/store"));
-server.use("/", require("./routes/site/cart"));
+server.use("/", sessionAuth, require("./routes/site/cart"));
 server.use("/", require("./routes/api/cart"));
 server.use("/", sessionAuth, require("./routes/site/contact-us"));
 
