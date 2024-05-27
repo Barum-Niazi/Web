@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Game = require("../../models/Game");
-const authJWT = require("../../middlewares/authJWT");
 const User = require("../../models/User");
-const sessionAuth = require("../../middlewares/sessionAuth");
 
 router.get("/store", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -45,33 +43,6 @@ router.get("/store/description/:name", async (req, res) => {
         name: new RegExp("^" + name + "$", "i"),
     });
     res.render("description", { game });
-});
-
-router.post("/add-to-cart/:name", sessionAuth, async (req, res) => {
-    const name = req.params.name;
-    const user = await User.findOne({ email: req.session.user.email });
-    user.cart.items.push(name);
-    await user.save();
-});
-
-router.delete("/remove-from-cart/:name", sessionAuth, async (req, res) => {
-    try {
-        const name = req.params.name;
-        const user = await User.findOne({ email: req.session.user.email });
-        if (!user) {
-            return res
-                .status(404)
-                .send({ success: false, message: "User not found" });
-        }
-        user.cart.items = user.cart.items.filter((item) => item !== name);
-        await user.save();
-        res.send({ success: true });
-    } catch (error) {
-        res.status(500).send({
-            success: false,
-            message: "Internal server error",
-        });
-    }
 });
 
 module.exports = router;
