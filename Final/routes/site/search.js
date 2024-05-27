@@ -9,9 +9,12 @@ router.get("/search", async (req, res) => {
     const limit = 3;
 
     if (search) {
-        if (req.session.searchHistory) {
+        if (
+            req.session.searchHistory &&
+            req.session.searchHistory.slice(-1)[0] !== search
+        ) {
             req.session.searchHistory.push(search);
-        } else {
+        } else if (!req.session.searchHistory) {
             req.session.searchHistory = [search];
         }
     }
