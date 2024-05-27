@@ -11,10 +11,9 @@ $(document).ready(function () {
             url: "/api/cart", // Corrected URL
             method: "POST",
             contentType: "application/json",
-            data: JSON.stringify({ name: gameName }), // Send data as JSON in the body
+            data: JSON.stringify({ name: gameName }),
             success: function () {
                 console.log("Added to cart:", gameName);
-                // Optionally refresh part of your page or notify the user
             },
             error: function (xhr, status, error) {
                 console.error("Error adding to cart:", error);

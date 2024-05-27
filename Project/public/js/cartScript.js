@@ -61,13 +61,13 @@ $(document).ready(function () {
         }
     }
     function removeFromCart(gameName, element) {
-        const token = localStorage.getItem("jwtToken"); // Retrieve the token from localStorage
+        const token = localStorage.getItem("jwtToken");
 
         $.ajax({
             url: `/api/cart/${encodeURIComponent(gameName)}`,
             type: "DELETE",
             headers: {
-                "x-auth-token": `${token}`, // Add the token to the request headers
+                "x-auth-token": `${token}`,
             },
             success: function (data) {
                 if (data.success) {
